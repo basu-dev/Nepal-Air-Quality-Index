@@ -29,12 +29,13 @@ const [data,nepalGeoJson]= await Promise.all([getAirQualityData(),getNepalGeoJso
         </div>
       <MapSummary data={filteredDta}/> 
       </div>
-      <footer className="fixed bottom-1 right-2">
+      <footer className="fixed bottom-1 right-2 text-xs">
         All the data are taken from <a className="text-blue-700" target="_blank" href="https://waqi.info">waqi.info</a>
       </footer>
     </main>
   );
   }catch(e){
+    console.error(e);
     return (
     <div className="text-center my-3 text-md">
       Could not fetch air quality data. Please try again later.
