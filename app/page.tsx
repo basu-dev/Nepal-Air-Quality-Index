@@ -22,7 +22,7 @@ const [data,nepalGeoJson]= await Promise.all([getAirQualityData(),getNepalGeoJso
 
   return (
     <main className="p-2 flex flex-col h-[100dvh]">
-      <header className="text-gray-800 font-bold text-xl border-b-2 my-3 pb-2">Nepal Air Quality Index </header>
+      <header className="text-gray-800 font-bold text-xl border-b-2 mb-3 pb-2">Nepal Air Quality Index </header>
       <div className="flex flex-col md:flex-row gap-2 h-full">
         <div className="min-h-[300px] flex-1">
           <DynamicMap data={filteredDta} nepalGeoJson={nepalGeoJson} />
