@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 
 interface IProps {
   data: TAirQuality[];
-  nepalGeoJson: GeoJSON.FeatureCollection<any>;
+  nepalGeoJson: any;
   selectedUid?: number;
 }
 

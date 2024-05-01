@@ -1,12 +1,10 @@
 import dynamic from "next/dynamic";
-import {
-  getAirQualityData,
-  getNepalGeoJson,
-} from "./actions/getAirQualityData";
+import { getAirQualityData } from "./actions/getAirQualityData";
 const DynamicMap = dynamic(() => import("./components/Map"), { ssr: false });
 import { point, inside, polygon } from "@turf/turf";
 import MapSummary from "./components/MapSummary";
 import Link from "next/link";
+import { getNepalGeoJson } from "./actions/getNepalGeoJson";
 interface IParams {
   params: any;
   searchParams: {
@@ -15,10 +13,8 @@ interface IParams {
 }
 export default async function Home(params: IParams) {
   try {
-    const [data, nepalGeoJson] = await Promise.all([
-      getAirQualityData(),
-      getNepalGeoJson(),
-    ]);
+    const [data] = await Promise.all([getAirQualityData()]);
+    const nepalGeoJson = await getNepalGeoJson();
     const filteredDta = data.data
       .filter((item) => {
         if (item.aqi == "-") return false;

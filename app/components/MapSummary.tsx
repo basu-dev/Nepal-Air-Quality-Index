@@ -15,7 +15,6 @@ const MapSummary: React.FC<IProps> = ({ data }) => {
         alt="AQI"
         height={200}
         width={400}
-        objectFit="contain"
         className="p-2"
       />
       <ul className="mt-2 border-t pt-2">
